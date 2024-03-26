@@ -60,7 +60,7 @@ aDd.addEventListener('click', function() {
     //and not an operator then I can use '+'
 
     for (var i = 0; i < displayForView.length; i++){
-        alert(displayForView[i] + ' ' + (displayForView[i]-1) ) //trying to see if [i]-1 amd +1 are working
+        alert(displayForView[i] + ' ' + (typeof(displayForView[i]-1)) ) //trying to see if prseInt is working
         if (displayForView[i] == '+' && (parseInt(displayForView[i]-1,10)) > 0){
             aDd.disabled = true;
             alert(parseInt(displayForView[i]+1, 10))
