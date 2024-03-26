@@ -54,15 +54,20 @@ aDd.addEventListener('click', function() {
     //trying to see if can use a loop to iterate through the string displayed,
     //so if '+' is already there, can't use it unless I press numbers again first
     //if '+' is there, will use .disable on the '+' button
-    for (var i = 0; i < displayForView.length; i++){
-        if (displayForView[i] == '+'){
-            aDd.disabled = true;
-        }
-    }
+
     theOperator = '+'
     displayForView += '+'
     displayInput.value += '+';
 
+
+
+    for (var i = 0; i < displayForView.length; i++){
+        if (displayForView[i] == '+' && displayForView[i]-1 > 0 && displayForView[i]-1 < 9
+        && displayForView[i]+1 > 0 && displayForView[i]+1 < 9 ){
+            aDd.disabled = true;
+        }
+    }
+    
 })
 
 var equals = document.getElementById('equals');
