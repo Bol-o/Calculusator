@@ -38,10 +38,45 @@ function operate(numbOne, theOperator, numbTwo){
 var displayInput = document.getElementById('displayInput');
 
 var numbOneArr = []
+var numbTwoArr = []
+var displayForView = ''
+
 var one = document.getElementById('one')
 one.addEventListener("click", function() {
     // This function will be executed when the button is clicked
-    numbOneArr.push(1)
-    numbOne =  numbOneArr.join('');
-    displayInput.value = numbOne;
+    displayForView += '1'
+    // numbOne =  numbOneArr.join('');
+    displayInput.value = displayForView;
 });
+
+var aDd = document.getElementById('add');
+aDd.addEventListener('click', function() {
+    //trying to see if can use a loop to iterate through the string displayed,
+    //so if '+' is already there, can't use it unless I press numbers again first
+    //if '+' is there, will use .disable on the '+' button
+    for (var i = 0; i < displayForView.length; i++){
+        if (displayForView[i] == '+'){
+            aDd.disabled = true;
+        }
+    }
+    theOperator = '+'
+    displayForView += '+'
+    displayInput.value += '+';
+
+})
+
+var equals = document.getElementById('equals');
+equals.addEventListener("click", function(){
+        displayInput.value = ''
+      if (numbOne && numbTwo){  
+    displayInput.value = operate(numbOne, theOperator,numbTwo)
+      }
+
+});
+
+function allThreeHaveValues(){
+    if (numbOne && theOperator && numbTwo){
+        }else {
+            return
+        }
+}
