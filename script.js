@@ -55,18 +55,22 @@ aDd.addEventListener('click', function() {
     //so if '+' is already there, can't use it unless I press numbers again first
     //if '+' is there, will use .disable on the '+' button
 
+    
+    //below trying to set condition so if b4 and after '+' there is a number
+    //and not an operator then I can use '+'
+
+    for (var i = 0; i < displayForView.length; i++){
+        alert(displayForView[i] + ' ' + (displayForView[i]-1) ) //trying to see if [i]-1 amd +1 are working
+        if (displayForView[i] == '+' && (parseInt(displayForView[i]-1,10)) > 0){
+            aDd.disabled = true;
+            alert(parseInt(displayForView[i]+1, 10))
+        }
+    }
+
     theOperator = '+'
     displayForView += '+'
     displayInput.value += '+';
 
-
-
-    for (var i = 0; i < displayForView.length; i++){
-        if (displayForView[i] == '+' && displayForView[i]-1 > 0 && displayForView[i]-1 < 9
-        && displayForView[i]+1 > 0 && displayForView[i]+1 < 9 ){
-            aDd.disabled = true;
-        }
-    }
     
 })
 
