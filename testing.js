@@ -1,11 +1,23 @@
-var stri = '123';
+// var displayForView = '1111+'
+// var numbOneArr = [];
+
+// console.log(numbOneArr);
 
 
-for (let i = 0; i < stri.length; i++){
-    console.log(parseInt(stri[i],10))
-    if (parseInt(stri[i],10) > 0 && parseInt(stri[i],10) < 9 ){
-    console.log((parseInt(stri[i],10)+1) + ' ' + typeof (parseInt(stri[i],10)+1))
+// for (var i = 0; i < displayForView.length; i++){
+//     numbOneArr.push(1)
+//     console.log(numbOneArr)
+//     if (displayForView[i] == '+'){
+//         console.log('last result' + numbOneArr);
+//         return 
+//     }
+// }
+
+
+// console.log('last result')
+
+var goo = 1
+if (goo)
+{
+console.log(goo + ' is fooking UNDEfines')
 }
-}
-var number = parseInt(stri,10);
-
