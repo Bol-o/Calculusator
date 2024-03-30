@@ -33,6 +33,27 @@ function operate(numbOne, theOperator, numbTwo){
 }
 //************************
 
+//addition button blocking function
+function addButtonControl() {                                                           
+    for (var i = 0; i < displayForView.length; i++){
+        alert(displayForView[i] + ' i+1: '+ displayForView[i+1])
+        if (displayForView[i] === '+' && displayForView[i+1] === undefined){ //made a mistake here,
+            // instead og [i-1] was using [i]-1
+            alert('displ is blocked')
+            aDd.disabled = true;
+            
+    
+           // alert(parseInt(displayForView[i+1], 10))
+        }else if(displayForView[i] == '+' && displayForView[i+1] == '1'){
+            aDd.disabled = false;
+            alarm(false)
+        }
+
+    }
+    }
+//*****************************
+
+
 //buttons JS
 
 var displayInput = document.getElementById('displayInput');
@@ -45,20 +66,20 @@ var one = document.getElementById('one')
 one.addEventListener("click", function() {
     if (numbOne === undefined && theOperator === undefined){
     // This function will be executed when the button is clicked
-    displayForView += '1'
-    alert(displayForView)
-    numbOneArr.push(1)
+        displayForView += '1'
+        alert(displayForView)
+        numbOneArr.push(1)
     // alert(numbOneArr + 'numbeTwoArr: ' + numbTwoArr)
     // numbOne =  numbOneArr.join('');
-    displayInput.value = displayForView;
-    addButtonControl()
+        displayInput.value = displayForView;
+        addButtonControl()
     }else if (numbOne !== undefined && theOperator !== undefined){
         displayForView += '1'
         numbTwoArr.push(1)
         // alert(numbOneArr + 'numbeTwoArr: ' + numbTwoArr)
         // alert(displayForView)
         displayInput.value = displayForView;
-        alert('arrTwo: '+ numbTwoArr)
+        
         
     }
 }
@@ -71,9 +92,13 @@ aDd.addEventListener('click', function() {
     //if '+' is there, will use .disable on the '+' button
     numbOne = 0;
     numbTwo = 0;
-for (var i = 0; i < numbOneArr.length; i++){
+    // addButtonControl()
+    for (var i = 0; i < numbOneArr.length; i++){
     numbOne = numbOne * 10 + numbOneArr[i]
-}
+    //addButtonControl()
+    
+    }
+    addButtonControl()
 // for (var i = 0; i < numbTwoArr.length; i++){
 //     numbTwo = numbTwo * 10 + numbTwoArr[i]
 // }
@@ -83,25 +108,14 @@ for (var i = 0; i < numbOneArr.length; i++){
     
     if (numbOne !== undefined){
     theOperator = '+'
+    alert(theOperator)
     displayForView += '+'
     displayInput.value = displayForView;
-
+    aDd.disabled = true
     addButtonControl()
-    function addButtonControl() {                                                           
-    for (var i = 0; i < displayForView.length; i++){
-        
-        if (displayForView[i] == '+'){ //made a mistake here,
-            // instead og [i-1] was using [i]-1
-            aDd.disabled = true;
-    
-           // alert(parseInt(displayForView[i+1], 10))
-        }
-        if(displayForView[i] == '+' && displayForView[i+1] == '1'){
-            aDd.disabled = false;
-        }
 
-    }
-    }
+    //addButtonControl() //switches on or off the 'add' button
+    
 }
     //addButtonControl()
 
