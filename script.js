@@ -36,12 +36,12 @@ function operate(numbOne, theOperator, numbTwo){
 //addition button blocking function
 function addButtonControl() {                                                           
     for (var i = 0; i < displayForView.length; i++){
-        alert(displayForView[i] + ' i+1: '+ displayForView[i+1])
+        //alert(displayForView[i] + ' i+1: '+ displayForView[i+1])
         if (displayForView[i] === '+' && displayForView[i+1] === undefined){ //made a mistake here,
             // instead og [i-1] was using [i]-1
             alert('displ is blocked')
             aDd.disabled = true;
-            
+            return
     
            // alert(parseInt(displayForView[i+1], 10))
         }else if(displayForView[i] == '+' && displayForView[i+1] == '1'){
@@ -64,6 +64,7 @@ var displayForView = ''
 
 var one = document.getElementById('one')
 one.addEventListener("click", function() {
+    addButtonControl()
     if (numbOne === undefined && theOperator === undefined){
     // This function will be executed when the button is clicked
         displayForView += '1'
