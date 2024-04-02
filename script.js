@@ -17,6 +17,7 @@ function divide(a,b){
 var numbOne;
 var numbTwo;
 var theOperator;
+var resultString = ''; //created to be iterated through for button blocking
 
 function operate(numbOne, theOperator, numbTwo){
     if (theOperator === '+'){
@@ -35,18 +36,18 @@ function operate(numbOne, theOperator, numbTwo){
 
 //addition button blocking function
 function addButtonControl() {                                                           
-    for (var i = 0; i < displayForView.length; i++){
+    for (var i = 0; i < resultString.length; i++){
         //alert(displayForView[i] + ' i+1: '+ displayForView[i+1])
-        if (displayForView[i] === '+' && displayForView[i+1] === undefined){ //made a mistake here,
+        if (resultString[i] === '+' && resultString[i+1] === undefined){ //made a mistake here,
             // instead og [i-1] was using [i]-1
-            alert('displ is blocked')
+           // alert('displ is blocked')
             aDd.disabled = true;
             return
     
            // alert(parseInt(displayForView[i+1], 10))
-        }else if(displayForView[i] == '+' && displayForView[i+1] == '1'){
+        }else if(resultString[i] == '+' && resultString[i+1] == '1'){
             aDd.disabled = false;
-            alarm(false)
+            //alert(false)
         }
 
     }
@@ -61,6 +62,7 @@ var displayInput = document.getElementById('displayInput');
 var numbOneArr = []
 var numbTwoArr = []
 var displayForView = ''
+var displayForView2 = ''
 
 var one = document.getElementById('one')
 one.addEventListener("click", function() {
@@ -68,18 +70,24 @@ one.addEventListener("click", function() {
     if (numbOne === undefined && theOperator === undefined){
     // This function will be executed when the button is clicked
         displayForView += '1'
-        alert(displayForView)
+        resultString += '1'
+        //alert(displayForView)
         numbOneArr.push(1)
     // alert(numbOneArr + 'numbeTwoArr: ' + numbTwoArr)
     // numbOne =  numbOneArr.join('');
         displayInput.value = displayForView;
         addButtonControl()
     }else if (numbOne !== undefined && theOperator !== undefined){
-        displayForView += '1'
+        //numbOne = result
+        
+        displayForView2 += '1'
+        //alert(displayForView2)
         numbTwoArr.push(1)
+        //alert(numbTwoArr)
         // alert(numbOneArr + 'numbeTwoArr: ' + numbTwoArr)
         // alert(displayForView)
-        displayInput.value = displayForView;
+        displayInput.value = displayForView2;
+        addButtonControl()
         
         
     }
@@ -91,13 +99,15 @@ aDd.addEventListener('click', function() {
     //trying to see if can use a loop to iterate through the string displayed,
     //so if '+' is already there, can't use it unless I press numbers again first
     //if '+' is there, will use .disable on the '+' button
+    if (numbOne === undefined){
     numbOne = 0;
     numbTwo = 0;
     // addButtonControl()
-    for (var i = 0; i < numbOneArr.length; i++){
-    numbOne = numbOne * 10 + numbOneArr[i]
-    //addButtonControl()
-    
+        for (var i = 0; i < numbOneArr.length; i++){
+        numbOne = numbOne * 10 + numbOneArr[i]
+        //addButtonControl()
+        
+        }
     }
     addButtonControl()
 // for (var i = 0; i < numbTwoArr.length; i++){
@@ -109,10 +119,12 @@ aDd.addEventListener('click', function() {
     
     if (numbOne !== undefined){
     theOperator = '+'
-    alert(theOperator)
-    displayForView += '+'
-    displayInput.value = displayForView;
-    aDd.disabled = true
+    resultString += '+'
+    alert(resultString)
+    //alert(theOperator)
+    //displayForView += '+'
+    //displayInput.value = displayForView;
+    //aDd.disabled = true
     addButtonControl()
 
     //addButtonControl() //switches on or off the 'add' button
@@ -136,15 +148,16 @@ equals.addEventListener("click", function(){
     for (var i = 0; i < numbTwoArr.length; i++){
         numbTwo = numbTwo * 10 + numbTwoArr[i]
     }
-    alert(numbOne+' prev is numbOne, next is numbTwo '+ numbTwo)
+    //alert(numbOne+' prev is numbOne, next is numbTwo '+ numbTwo)
       if (numbOne !== undefined && numbTwo !== undefined){ 
-        alert(theOperator) 
-    alert(operate(numbOne, theOperator,numbTwo))
+       // alert(theOperator) 
+    //alert(operate(numbOne, theOperator,numbTwo))
       }
-      displayInput.value = operate(numbOne, theOperator,numbTwo)
-
+      
+    result = operate(numbOne, theOperator,numbTwo)
+    displayInput.value = result
 });
-alert('num1: '+ numbOne+' num2: ' + numbTwo)
+//alert('num1: '+ numbOne+' num2: ' + numbTwo)
 
 function allThreeHaveValues(){
     if (numbOne && theOperator && numbTwo){
