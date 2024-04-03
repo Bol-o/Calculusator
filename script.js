@@ -34,6 +34,27 @@ function operate(numbOne, theOperator, numbTwo){
 }
 //************************
 
+//eQuals function
+function eQuals(){
+    numbOne = 0;
+    numbTwo = 0;
+for (var i = 0; i < numbOneArr.length; i++){
+    numbOne = numbOne * 10 + numbOneArr[i]
+}
+for (var i = 0; i < numbTwoArr.length; i++){
+    numbTwo = numbTwo * 10 + numbTwoArr[i]
+}
+//alert(numbOne+' prev is numbOne, next is numbTwo '+ numbTwo)
+  if (numbOne !== undefined && numbTwo !== undefined){ 
+   // alert(theOperator) 
+//alert(operate(numbOne, theOperator,numbTwo))
+  }
+  
+result = operate(numbOne, theOperator,numbTwo)
+displayInput.value = result
+ }
+ //****************************
+
 //addition button blocking function
 function addButtonControl() {                                                           
     for (var i = 0; i < resultString.length; i++){
@@ -42,7 +63,7 @@ function addButtonControl() {
             // instead og [i-1] was using [i]-1
            // alert('displ is blocked')
             aDd.disabled = true;
-            return
+            //return
     
            // alert(parseInt(displayForView[i+1], 10))
         }else if(resultString[i] == '+' && resultString[i+1] == '1'){
@@ -66,7 +87,7 @@ var displayForView2 = ''
 
 var one = document.getElementById('one')
 one.addEventListener("click", function() {
-    addButtonControl()
+    //addButtonControl()
     if (numbOne === undefined && theOperator === undefined){
     // This function will be executed when the button is clicked
         displayForView += '1' //this is connected to display for first number
@@ -79,7 +100,7 @@ one.addEventListener("click", function() {
         addButtonControl()
     }else if (numbOne !== undefined && theOperator !== undefined){
         //numbOne = result
-        
+        resultString += '1'
         displayForView2 += '1'
         //alert(displayForView2)
         numbTwoArr.push(1)
@@ -110,6 +131,9 @@ aDd.addEventListener('click', function() {
         }
     }
     addButtonControl()
+    if (theOperator !== undefined){
+        eQuals()
+    }
 // for (var i = 0; i < numbTwoArr.length; i++){
 //     numbTwo = numbTwo * 10 + numbTwoArr[i]
 // }
@@ -139,7 +163,7 @@ aDd.addEventListener('click', function() {
 
 var equals = document.getElementById('equals');
 equals.addEventListener("click", function(){
-        
+     function eQuals(){
         numbOne = 0;
         numbTwo = 0;
     for (var i = 0; i < numbOneArr.length; i++){
@@ -156,6 +180,8 @@ equals.addEventListener("click", function(){
       
     result = operate(numbOne, theOperator,numbTwo)
     displayInput.value = result
+     }
+     eQuals()
 });
 //alert('num1: '+ numbOne+' num2: ' + numbTwo)
 
