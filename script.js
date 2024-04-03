@@ -69,7 +69,7 @@ one.addEventListener("click", function() {
     addButtonControl()
     if (numbOne === undefined && theOperator === undefined){
     // This function will be executed when the button is clicked
-        displayForView += '1'
+        displayForView += '1' //this is connected to display for first number
         resultString += '1'
         //alert(displayForView)
         numbOneArr.push(1)
@@ -120,7 +120,7 @@ aDd.addEventListener('click', function() {
     if (numbOne !== undefined){
     theOperator = '+'
     resultString += '+'
-    alert(resultString)
+    //alert(resultString)
     //alert(theOperator)
     //displayForView += '+'
     //displayInput.value = displayForView;
