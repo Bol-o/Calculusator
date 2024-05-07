@@ -14,7 +14,7 @@ function divide(a,b){
 //***************
 
 //calculations function
-var numbOne;
+var numbOne = 0;
 var numbTwo;
 var theOperator;
 var resultString = ''; //created to be iterated through for button blocking
@@ -88,30 +88,32 @@ var displayForView2 = ''
 var one = document.getElementById('one')
 one.addEventListener("click", function() {
     //addButtonControl()
-    if (numbOne === undefined && theOperator === undefined){
-    // This function will be executed when the button is clicked
-        displayForView += '1' //this is connected to display for first number
-        resultString += '1'
-        //alert(displayForView)
-        numbOneArr.push(1)
-    // alert(numbOneArr + 'numbeTwoArr: ' + numbTwoArr)
-    // numbOne =  numbOneArr.join('');
-        displayInput.value = displayForView;
-        addButtonControl()
-    }else if (numbOne !== undefined && theOperator !== undefined){
-        //numbOne = result
-        resultString += '1'
-        displayForView2 += '1'
-        //alert(displayForView2)
-        numbTwoArr.push(1)
-        //alert(numbTwoArr)
-        // alert(numbOneArr + 'numbeTwoArr: ' + numbTwoArr)
-        // alert(displayForView)
-        displayInput.value = displayForView2;
-        addButtonControl()
+    numbOne = numbOne * 10 + 1;
+    displayInput.value = numbOne;
+    // if (numbOne === undefined && theOperator === undefined){
+    // // This function will be executed when the button is clicked
+    //     displayForView += '1' //this is connected to display for first number
+    //     resultString += '1'
+    //     //alert(displayForView)
+    //     numbOneArr.push(1)
+    // // alert(numbOneArr + 'numbeTwoArr: ' + numbTwoArr)
+    // // numbOne =  numbOneArr.join('');
+    //     displayInput.value = displayForView;
+    //     addButtonControl()
+    // }else if (numbOne !== undefined && theOperator !== undefined){
+    //     //numbOne = result
+    //     resultString += '1'
+    //     displayForView2 += '1'
+    //     //alert(displayForView2)
+    //     numbTwoArr.push(1)
+    //     //alert(numbTwoArr)
+    //     // alert(numbOneArr + 'numbeTwoArr: ' + numbTwoArr)
+    //     // alert(displayForView)
+    //     displayInput.value = displayForView2;
+    //     addButtonControl()
         
         
-    }
+    // }
 }
 );
 
