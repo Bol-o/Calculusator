@@ -88,8 +88,14 @@ var displayForView2 = ''
 var one = document.getElementById('one')
 one.addEventListener("click", function() {
     //addButtonControl()
+    if (theOperator === undefined){
     numbOne = numbOne * 10 + 1;
     displayInput.value = numbOne;
+} else if (theOperator !== undefined){
+    numbTwo = numbTwo * 10 + 1;
+    displayInput.value = numbOne;
+}
+
     // if (numbOne === undefined && theOperator === undefined){
     // // This function will be executed when the button is clicked
     //     displayForView += '1' //this is connected to display for first number
@@ -116,13 +122,14 @@ one.addEventListener("click", function() {
     // }
 }
 );
+// var two = document.getElementById('two')
 
 var aDd = document.getElementById('add');
 aDd.addEventListener('click', function() {
     //trying to see if can use a loop to iterate through the string displayed,
     //so if '+' is already there, can't use it unless I press numbers again first
     //if '+' is there, will use .disable on the '+' button
-    if (numbOne === undefined){
+    if (numbOne !== undefined){
     numbOne = 0;
     numbTwo = 0;
     // addButtonControl()
