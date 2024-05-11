@@ -15,7 +15,10 @@ function divide(a,b){
 
 //calculations function
 var numbOne = 0;
+var numbOneString = "";
+
 var numbTwo = 0;
+var numbTwoString = "";
 var theOperator;
 var resultString = ''; //created to be iterated through for button blocking
 
@@ -88,12 +91,20 @@ var displayForView2 = ''
 var one = document.getElementById('one')
 one.addEventListener("click", function() {
     //addButtonControl()
+    // if(dot.disabled == true && theOperator === undefined){
+        
+    //     displayInput.value = (numbOne * 10 + 1)/10;
+    //     numbOne = (numbOne * 10 + 1)/10;
+    //     return
+    // }
     if (theOperator === undefined){
-    numbOne = numbOne * 10 + 1;
-    displayInput.value = numbOne;
+    numbOneString = numbOneString + '1';
+    displayInput.value = numbOneString;
+    numbOne = parseFloat(numbOneString);
 } else if (theOperator !== undefined){
-    numbTwo = numbTwo * 10 + 1;
-    displayInput.value = numbTwo;
+    numbTwoString = numbTwoString + '1';
+    displayInput.value = numbTwoString;
+    numbTwo = parseFloat(numbTwoString);
 }
 
     // if (numbOne === undefined && theOperator === undefined){
@@ -138,7 +149,7 @@ aDd.addEventListener('click', function() {
     //alert('num1: '+ numbOne + ' num2: '+ numbTwo)
     //below trying to set condition so if b4 and after '+' there is a number
     //and not an operator then I can use '+'
-    
+    dot.disabled = false;
     if (numbOne !== undefined){
     theOperator = '+'
     aDd.disabled = true;
@@ -162,11 +173,14 @@ aDd.addEventListener('click', function() {
 var two = document.getElementById('two');
 two.addEventListener("click", function(){
     if (theOperator === undefined){
-        numbOne = numbOne * 10 + 2;
-        displayInput.value = numbOne;
+        numbOneString = numbOneString + '2';
+        displayInput.value = numbOneString;
+        numbOne = parseFloat(numbOneString);
     } else if (theOperator !== undefined){
-        numbTwo = numbTwo * 10 + 2;
-        displayInput.value = numbTwo;
+        numbTwoString = numbTwoString + '2';
+        displayInput.value = numbTwoString;
+        numbTwo = parseFloat(numbTwoString);
+
     }
 
 })
@@ -175,7 +189,8 @@ var equals = document.getElementById('equals');
 equals.addEventListener("click", function(){
           
     result = operate(numbOne, theOperator,numbTwo)
-    displayInput.value = result
+    //result = result.toFixed(5);
+    displayInput.value = result.toFixed(1);
     numbOne = 0;
     numbTwo = 0;
     theOperator = undefined;
@@ -185,6 +200,25 @@ equals.addEventListener("click", function(){
      
    
 });
+
+var dot = document.getElementById('dot');
+dot.addEventListener('click', function(){
+    if (theOperator == undefined){
+    if (numbOne == 0){
+    numbOneString = numbOneString + '0';
+    
+    }
+    numbOneString = numbOneString + '.'; 
+    displayInput.value = numbOneString;
+
+    dot.disabled = true;
+    } else if(theOperator !== undefined){
+    numbTwoString = numbTwoString + '.';
+    displayInput.value = numbTwoString;
+    }
+
+
+})
 //alert('num1: '+ numbOne+' num2: ' + numbTwo)
 
 function allThreeHaveValues(){
