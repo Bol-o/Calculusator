@@ -20,6 +20,9 @@ var numbOneString = "";
 var numbTwo;
 var numbTwoString = "";
 var theOperator = '';
+
+
+
 var resultString = ''; //created to be iterated through for button blocking
 
 function operate(numbOne, theOperator, numbTwo){
@@ -36,6 +39,22 @@ function operate(numbOne, theOperator, numbTwo){
     }
 }
 //************************
+
+//ADDING NEGATIVE NUMBER AS FIRST
+
+var isMinus; //for adding negative number as the first number
+
+function firstNumbNegative(){
+    if (isMinus == true){
+        numbOne = numbOne * (-1);
+        alert(numbOne)
+        displayInput.value = '- ' + numbOneString;
+    } 
+}
+
+
+
+
 
 
 // RESET FUNCTION//
@@ -135,61 +154,19 @@ var displayInput = document.getElementById('displayInput');
 // var displayForView2 = ''
 
 
-var clear = document.getElementById('clear')
+var clear = document.getElementById('clear');
 clear.addEventListener('click', function(){
     reset();
 });
 
 
-
-
-var one = document.getElementById('one')
-one.addEventListener("click", function() {
-    //addButtonControl()
-    // if(dot.disabled == true && theOperator === undefined){
-        
-    //     displayInput.value = (numbOne * 10 + 1)/10;
-    //     numbOne = (numbOne * 10 + 1)/10;
-    //     return
-    // }
-    if (theOperator === ''){
-        //alert('iz working')
-    numbOneString = numbOneString + '1';
-    displayInput.value = numbOneString;
-    numbOne = parseFloat(numbOneString);
-} else if (theOperator !== ''){
-    numbTwoString = numbTwoString + '1';
-    displayInput.value = numbTwoString;
-    numbTwo = parseFloat(numbTwoString);
-}
-
-    // if (numbOne === undefined && theOperator === undefined){
-    // // This function will be executed when the button is clicked
-    //     displayForView += '1' //this is connected to display for first number
-    //     resultString += '1'
-    //     //alert(displayForView)
-    //     numbOneArr.push(1)
-    // // alert(numbOneArr + 'numbeTwoArr: ' + numbTwoArr)
-    // // numbOne =  numbOneArr.join('');
-    //     displayInput.value = displayForView;
-    //     addButtonControl()
-    // }else if (numbOne !== undefined && theOperator !== undefined){
-    //     //numbOne = result
-    //     resultString += '1'
-    //     displayForView2 += '1'
-    //     //alert(displayForView2)
-    //     numbTwoArr.push(1)
-    //     //alert(numbTwoArr)
-    //     // alert(numbOneArr + 'numbeTwoArr: ' + numbTwoArr)
-    //     // alert(displayForView)
-    //     displayInput.value = displayForView2;
-    //     addButtonControl()
-        
-        
-    // }
-}
-);
 // var two = document.getElementById('two')
+
+
+
+
+
+//OPERATOR ELEMENTS-------------
 
 var aDd = document.getElementById('add');
 aDd.addEventListener('click', function() {
@@ -222,17 +199,142 @@ aDd.addEventListener('click', function() {
     //addButtonControl()
 
     //addButtonControl() //switches on or off the 'add' button
-    
-   }else if (theOperator !== ''){
-    aDd.disabled = false;
-    equals();
-   }  
+    }
+//    }else if (theOperator !== ''){
+//     aDd.disabled = false;
+//     equals();
+//    }  
     //addButtonControl()
-
-    
-
     
 })
+
+var multiplication = document.getElementById('multiply');
+
+multiplication.addEventListener('click', function(){
+
+    if (theOperator !== '' && numbTwo !== undefined ){
+        equals();
+        
+    }
+    if (numbOne !== undefined){
+    theOperator = '*';
+
+    }
+
+})
+
+var division = document.getElementById('divide');
+division.addEventListener('click',function(){
+    if (theOperator !== '' && numbTwo !== undefined ){
+        equals();
+        
+    }
+    if (numbOne !== undefined){
+    theOperator = '/';
+
+    }
+
+})
+
+var subtraction = document.getElementById('subtract');
+subtraction.addEventListener('click', function(){
+
+    if(numbOne == undefined){
+        isMinus = true
+    }
+
+    if (theOperator !== '' && numbTwo !== undefined ){
+        equals();
+        
+    }
+    if (numbOne !== undefined){
+    theOperator = '-';
+
+    }
+
+})
+
+
+
+
+var equal = document.getElementById('equals');
+equal.addEventListener("click", function(){
+   
+   
+     equals()       
+    // result = operate(numbOne, theOperator,numbTwo)
+    // //result = result.toFixed(5);
+    // displayInput.value = result;
+    // numbOne = undefined;
+    // numbTwo = undefined;
+    // theOperator = '';
+    // aDd.disabled = false;
+
+
+     
+   
+});
+//*********************************   
+
+
+
+
+
+//DOT & NUMBERS ELEMENTS
+
+
+var one = document.getElementById('one');
+one.addEventListener("click", function() {
+    //addButtonControl()
+    // if(dot.disabled == true && theOperator === undefined){
+        
+    //     displayInput.value = (numbOne * 10 + 1)/10;
+    //     numbOne = (numbOne * 10 + 1)/10;
+    //     return
+    // }
+    if (theOperator === ''){
+        //alert('iz working')
+    numbOneString = numbOneString + '1';
+    displayInput.value = numbOneString;
+    numbOne = parseFloat(numbOneString);
+} else if (theOperator !== ''){
+    numbTwoString = numbTwoString + '1';
+    displayInput.value = numbTwoString;
+    numbTwo = parseFloat(numbTwoString);
+}
+
+    firstNumbNegative()
+
+    // if (numbOne === undefined && theOperator === undefined){
+    // // This function will be executed when the button is clicked
+    //     displayForView += '1' //this is connected to display for first number
+    //     resultString += '1'
+    //     //alert(displayForView)
+    //     numbOneArr.push(1)
+    // // alert(numbOneArr + 'numbeTwoArr: ' + numbTwoArr)
+    // // numbOne =  numbOneArr.join('');
+    //     displayInput.value = displayForView;
+    //     addButtonControl()
+    // }else if (numbOne !== undefined && theOperator !== undefined){
+    //     //numbOne = result
+    //     resultString += '1'
+    //     displayForView2 += '1'
+    //     //alert(displayForView2)
+    //     numbTwoArr.push(1)
+    //     //alert(numbTwoArr)
+    //     // alert(numbOneArr + 'numbeTwoArr: ' + numbTwoArr)
+    //     // alert(displayForView)
+    //     displayInput.value = displayForView2;
+    //     addButtonControl()
+        
+        
+    // }
+}
+);
+
+
+
+
 var two = document.getElementById('two');
 two.addEventListener("click", function(){
     if (theOperator === ''){
@@ -293,23 +395,11 @@ five.addEventListener("click", function(){
 
 })
 
-var equal = document.getElementById('equals');
-equal.addEventListener("click", function(){
-   
-   
-     equals()       
-    // result = operate(numbOne, theOperator,numbTwo)
-    // //result = result.toFixed(5);
-    // displayInput.value = result;
-    // numbOne = undefined;
-    // numbTwo = undefined;
-    // theOperator = '';
-    // aDd.disabled = false;
+//****************************************
 
 
-     
-   
-});
+
+
 
 var dot = document.getElementById('dot');
 dot.addEventListener('click', function(){
