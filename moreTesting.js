@@ -1,4 +1,5 @@
-var string = '';
+var string;
+console.log(string)
 string = string + '0';
 
 //string = Math.round(string)
