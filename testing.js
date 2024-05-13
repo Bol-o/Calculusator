@@ -45,9 +45,12 @@ function operate(numbOne, theOperator, numbTwo){
 var isMinus; //for adding negative number as the first number
 
 function firstNumbNegative(){
+    if (numbOne < 0){
+        return
+    }
     if (isMinus == true){
         numbOne = numbOne * (-1);
-        alert(numbOne)
+        //alert(numbOne)
         displayInput.value = '- ' + numbOneString;
     } 
 }
