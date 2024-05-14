@@ -52,6 +52,7 @@ function firstNumbNegative(){
         numbOne = numbOne * (-1);
         //alert(numbOne)
         displayInput.value = '- ' + numbOneString;
+        isMinus = false;
     } 
 }
 
@@ -71,11 +72,25 @@ function reset(){
     resultString = '';
     displayInput.value = '';
     aDd.disabled = false;
+    isMinus = false;
 }
 
 //*******************
 
+//NUMBERS EVALUATION FUNCTION FOR LESS REPEATED CODE, used when number buttons are pressed
 
+function numbEval(numberr){
+    if (theOperator === ''){
+        numbOneString = numbOneString + numberr;
+        displayInput.value = numbOneString;
+        numbOne = parseFloat(numbOneString);
+    } else if (theOperator !== ''){
+        numbTwoString = numbTwoString + numberr;
+        displayInput.value = numbTwoString;
+        numbTwo = parseFloat(numbTwoString);
+
+    }
+}
 
 
 
@@ -295,16 +310,17 @@ one.addEventListener("click", function() {
     //     numbOne = (numbOne * 10 + 1)/10;
     //     return
     // }
-    if (theOperator === ''){
-        //alert('iz working')
-    numbOneString = numbOneString + '1';
-    displayInput.value = numbOneString;
-    numbOne = parseFloat(numbOneString);
-} else if (theOperator !== ''){
-    numbTwoString = numbTwoString + '1';
-    displayInput.value = numbTwoString;
-    numbTwo = parseFloat(numbTwoString);
-}
+    numbEval('1')
+//     if (theOperator === ''){
+//         //alert('iz working')
+//     numbOneString = numbOneString + '1';
+//     displayInput.value = numbOneString;
+//     numbOne = parseFloat(numbOneString);
+// } else if (theOperator !== ''){
+//     numbTwoString = numbTwoString + '1';
+//     displayInput.value = numbTwoString;
+//     numbTwo = parseFloat(numbTwoString);
+// }
 
     firstNumbNegative()
 
@@ -340,61 +356,63 @@ one.addEventListener("click", function() {
 
 var two = document.getElementById('two');
 two.addEventListener("click", function(){
-    if (theOperator === ''){
-        numbOneString = numbOneString + '2';
-        displayInput.value = numbOneString;
-        numbOne = parseFloat(numbOneString);
-    } else if (theOperator !== ''){
-        numbTwoString = numbTwoString + '2';
-        displayInput.value = numbTwoString;
-        numbTwo = parseFloat(numbTwoString);
-
-    }
+    numbEval('2');
+    firstNumbNegative();
 
 })
 
 var three = document.getElementById('three');
 three.addEventListener("click", function(){
-    if (theOperator === ''){
-        numbOneString = numbOneString + '3';
-        displayInput.value = numbOneString;
-        numbOne = parseFloat(numbOneString);
-    } else if (theOperator !== ''){
-        numbTwoString = numbTwoString + '3';
-        displayInput.value = numbTwoString;
-        numbTwo = parseFloat(numbTwoString);
-
-    }
+    numbEval('3');
+    firstNumbNegative();
 
 })
 
 var four = document.getElementById('four');
 four.addEventListener("click", function(){
-    if (theOperator === ''){
-        numbOneString = numbOneString + '4';
-        displayInput.value = numbOneString;
-        numbOne = parseFloat(numbOneString);
-    } else if (theOperator !== ''){
-        numbTwoString = numbTwoString + '4';
-        displayInput.value = numbTwoString;
-        numbTwo = parseFloat(numbTwoString);
-
-    }
-
+    numbEval('4');
+    firstNumbNegative();
 })
 
 var five = document.getElementById('five');
 five.addEventListener("click", function(){
-    if (theOperator === ''){
-        numbOneString = numbOneString + '5';
-        displayInput.value = numbOneString;
-        numbOne = parseFloat(numbOneString);
-    } else if (theOperator !== ''){
-        numbTwoString = numbTwoString + '5';
-        displayInput.value = numbTwoString;
-        numbTwo = parseFloat(numbTwoString);
+    numbEval('5');
+    firstNumbNegative();
 
-    }
+})
+
+var six = document.getElementById('six');
+six.addEventListener("click", function(){
+    numbEval('6');
+    firstNumbNegative();
+
+})
+
+var seven = document.getElementById('seven');
+seven.addEventListener("click", function(){
+    numbEval('7');
+    firstNumbNegative();
+
+})
+
+var eight = document.getElementById('eight');
+eight.addEventListener("click", function(){
+    numbEval('8');
+    firstNumbNegative();
+
+})
+
+var nine = document.getElementById('nine');
+nine.addEventListener("click", function(){
+    numbEval('9');
+    firstNumbNegative();
+
+})
+
+var zero = document.getElementById('zero');
+zero.addEventListener("click", function(){
+    numbEval('0');
+    firstNumbNegative();
 
 })
 
@@ -410,6 +428,9 @@ dot.addEventListener('click', function(){
         for (var i=0; i < numbOneString.length; i++){
             if(numbOneString[i] == '.'){
                return
+            }
+            if (isMinus == false){
+                isMinus = true;
             }
         }
     if (numbOneString == ''){
