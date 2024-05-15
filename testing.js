@@ -50,7 +50,10 @@ function firstNumbNegative(){
         if (numbTwo !== undefined){
             displayInput.value = numbTwo
         }else {
-            displayInput.value = numbOneString;
+            displayInput.value = numbOne;
+            if (isMinus == true){
+                displayInput.value = "-" + numbOneString;
+            }
         return
         }
     }
@@ -89,12 +92,16 @@ function numbEval(numberr){
     if (theOperator === ''){
         numbOneString = numbOneString + numberr;
         displayInput.value = numbOneString;
+       
         if (numbOne < 0){
         numbOne = (parseFloat(numbOneString)) * (-1)
         displayInput.value = numbOne;
         }else {
         numbOne = parseFloat(numbOneString)
         displayInput.value = numbOneString;
+        if (isMinus == true){
+            displayInput.value = "-" + numbOneString;
+        }
         };
     } else if (theOperator !== ''){
         numbTwoString = numbTwoString + numberr;
@@ -453,6 +460,9 @@ dot.addEventListener('click', function(){
     }
         numbOneString = numbOneString + '.'
         displayInput.value = numbOneString;
+        if (isMinus == true){
+            displayInput.value = "-" + numbOneString;
+        }
     
     
     // if (numbOne == 0 || numbOne == undefined){
