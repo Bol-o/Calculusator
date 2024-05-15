@@ -1,0 +1,15 @@
+
+
+
+.container1 {
+    display: flex;
+    justify-content: center;
+    background-color: bisque;
+}
+
+
+.container2 {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(85, 102, 96);
+}
