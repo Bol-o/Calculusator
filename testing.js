@@ -118,6 +118,10 @@ function numbEval(numberr){
 //eQuals function
 
 function equals(){
+    if (numbTwo == undefined){
+        displayInput.value = "seond number missing pal";
+        return
+    }
     result = operate(numbOne, theOperator,numbTwo)
     //result = result.toFixed(5);
     displayInput.value = result;
