@@ -433,6 +433,9 @@ nine.addEventListener("click", function(){
 
 var zero = document.getElementById('zero');
 zero.addEventListener("click", function(){
+    if (theOperator == '/' && numbTwo == undefined){
+        return displayInput.value = 'choose not zero bruv'
+    }
     numbEval('0');
     firstNumbNegative();
 
