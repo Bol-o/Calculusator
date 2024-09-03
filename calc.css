@@ -1,5 +1,8 @@
 
-
+#displayInput {
+    /* width: 250px; */
+    display: flex;
+}
 
 .container1 {
     display: flex;
@@ -12,4 +15,46 @@
     display: flex;
     justify-content: center;
     background-color: rgb(85, 102, 96);
+}
+button {
+    width: 50px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    margin: 5px; /* Adjust margin as needed */
+    border: 3px solid #db0909;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    font-size: 18px; /* Adjust font size as needed */
+    text-align: center;
+    line-height: 50px; /* Should be equal to button height for vertical centering */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Styling for hover effect */
+button:hover {
+    background-color: #3b2424;
+}
+
+/* Styling for operator buttons */
+button.operator {
+    background-color: #f0ad4e; /* Adjust color as needed */
+    color: #fff;
+}
+
+/* Styling for equals button */
+button.equals {
+    background-color: #5cb85c; /* Adjust color as needed */
+    color: #fff;
+}
+
+/* Styling for clear button */
+button.clear {
+    background-color: #d9534f; /* Adjust color as needed */
+    color: #fff;
+}
+
+/* Styling for other special buttons */
+button.special {
+    background-color: #337ab7; /* Adjust color as needed */
+    color: #fff;
 }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="buttonn" value="zeeBoootooon">    BUTTON </button>
+</body>
+<script>
+    const meButton = document.getElementById('buttonn')
+    
+meButton.addEventListener('mouseover', () => {
+    // bee ='Zee BEE'
+    // if (bee == 'Zee BEE'){
+    // console.log(bee);
+    // }else {
+    //     console.log(event.type)
+    // };
+  //console.log(bee.type.value);
+  console.log(event);
+
+  alert(event.type)
+
+  //meButton.removeEventListener('click',true);
+  // `event` is passed into the callback from the `.addEventListener` function when it receives a 'click' event.
+});
+function myForEach(array, callback) {
+  for (let i = 0; i < array.length; i++) {
+    callback(array[i]); // This is when the callback function gets called, or executed
+  }
+}
+
+// You would call it like this:
+const myArry = [2, 3, 4, 2];
+function myForEachCall(){
+myForEach(myArry, (item) => {
+  console.log(item + 2); 
+})
+}
+meButton.addEventListener('click', myForEachCall);
+</script> 
+</html>
